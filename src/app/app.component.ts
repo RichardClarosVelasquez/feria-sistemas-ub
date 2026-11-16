@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'feria-sistemas-ub';
+  title = 'Feria Ingeniería de Sistemas, Semestre 2 - 2026';
 }
