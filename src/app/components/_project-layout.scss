@@ -1,0 +1,43 @@
+.project-layout {
+  --gradient-brand: linear-gradient(135deg, #ffa50c 0%, #f9b246 18%, #398bd5 58%, #002a50 100%);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.participants {
+  flex: 0 0 220px;
+}
+
+.divider {
+  width: 1px;
+  min-height: 220px;
+  background: var(--gradient-brand);
+  margin-inline: 0.5rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.project-layout > article {
+  flex: 1;
+  min-width: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .project-layout {
+    flex-direction: column;
+  }
+
+  .participants {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    min-height: 1px;
+    margin: 0.5rem 0;
+  }
+}

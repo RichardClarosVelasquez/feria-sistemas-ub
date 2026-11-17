@@ -37,8 +37,17 @@
       var(--brand-navy) 100%
     );
 
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
       "Segoe UI Symbol";
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -47,7 +56,11 @@
 
   :host {
     display: block;
-    background: linear-gradient(135deg, rgba(255, 165, 12, 0.08), rgba(57, 139, 213, 0.08));
+    background: linear-gradient(
+      135deg,
+      rgba(255, 165, 12, 0.08),
+      rgba(57, 139, 213, 0.08)
+    );
   }
 
   h1 {
@@ -57,8 +70,17 @@
     line-height: 100%;
     letter-spacing: -0.125rem;
     margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    font-family:
+      "Inter Tight",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
       "Segoe UI Symbol";
   }
 
@@ -77,8 +99,17 @@
     padding: 2rem 1rem;
     box-sizing: border-box;
     position: relative;
-    background: radial-gradient(circle at top left, rgba(249, 178, 70, 0.12), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(57, 139, 213, 0.12), transparent 28%);
+    background:
+      radial-gradient(
+        circle at top left,
+        rgba(249, 178, 70, 0.12),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        rgba(57, 139, 213, 0.12),
+        transparent 28%
+      );
   }
 
   .uub-logo {
@@ -173,15 +204,33 @@
     transform: translateY(-1px);
   }
 
-  .pill-group .pill:nth-child(1) { --pill-accent: var(--brand-orange); }
-  .pill-group .pill:nth-child(2) { --pill-accent: var(--brand-blue); }
-  .pill-group .pill:nth-child(3) { --pill-accent: var(--brand-deep-blue); }
-  .pill-group .pill:nth-child(4) { --pill-accent: var(--brand-gold); }
-  .pill-group .pill:nth-child(5) { --pill-accent: var(--brand-orange-soft); }
+  .pill-group .pill:nth-child(1) {
+    --pill-accent: var(--brand-orange);
+  }
+  .pill-group .pill:nth-child(2) {
+    --pill-accent: var(--brand-blue);
+  }
+  .pill-group .pill:nth-child(3) {
+    --pill-accent: var(--brand-deep-blue);
+  }
+  .pill-group .pill:nth-child(4) {
+    --pill-accent: var(--brand-gold);
+  }
+  .pill-group .pill:nth-child(5) {
+    --pill-accent: var(--brand-orange-soft);
+  }
 
   .pill-group svg {
     margin-inline-start: 0.75rem;
     color: var(--pill-accent);
+  }
+
+  .uub-mascot {
+    display: block;
+    width: 20rem;
+    max-width: 100%;
+    height: auto;
+    margin: 2rem auto 0;
   }
 
   .social-links {
@@ -220,29 +269,63 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
-      <img class="uub-logo" src="images/logo_uub.png" alt="Universidad Unión Bolivariana" />
+      <img
+        class="uub-logo"
+        src="images/logo_uub.png"
+        alt="Universidad Unión Bolivariana"
+      />
       <h1>{{ title }}</h1>
       <p>Sábado 21 de noviembre de 2026 - Plaza Villarroel. 🎉</p>
+      <img
+        class="uub-mascot"
+        src="images/uub_mascot.png"
+        alt="Mascota de la Universidad Unión Bolivariana"
+      />
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        @for (item of [
-          { title: 'Grupo 1: Pruebas de Pentesting', link: '/grupo-1' },
-          { title: 'Grupo 2: Desarrollo Web', link: '/grupo-2' },
-          { title: 'Grupo 3: Machine Learning', link: '/grupo-3' },
-          { title: 'Grupo 4: Seguridad Informática', link: '/grupo-4' },
-          { title: 'Grupo 5: Inteligencia Artificial', link: '/grupo-5' },          
-          { title: 'Grupo 6: Simulaciones', link: '/grupo-6' },
-          { title: 'Grupo 7: Robótica y Microcontroladores', link: '/grupo-7' },
-          { title: 'Grupo 8: Análisis de Datos', link: '/grupo-8' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [routerLink]="item.link"
-          >
-            <img class="pill-image" src="images/icono.jpg" alt="" width="48" height="48" />
-            <span>{{ item.title }}</span>
+        @for (
+          item of [
+            {
+              group: "GRUPO 1",
+              title: "Pruebas de Pentesting",
+              link: "/grupo-1",
+            },
+            { group: "GRUPO 2", title: "Desarrollo Web", link: "/grupo-2" },
+            { group: "GRUPO 3", title: "Machine Learning", link: "/grupo-3" },
+            {
+              group: "GRUPO 4",
+              title: "Seguridad Informática",
+              link: "/grupo-4",
+            },
+            {
+              group: "GRUPO 5",
+              title: "Inteligencia Artificial",
+              link: "/grupo-5",
+            },
+            { group: "GRUPO 6", title: "Simulaciones", link: "/grupo-6" },
+            {
+              group: "GRUPO 7",
+              title: "Robótica y Microcontroladores",
+              link: "/grupo-7",
+            },
+            { group: "GRUPO 8", title: "Análisis de Datos", link: "/grupo-8" },
+          ];
+          track item.link
+        ) {
+          <a class="pill" [routerLink]="item.link">
+            <img
+              class="pill-image"
+              src="images/icono.jpg"
+              alt=""
+              width="48"
+              height="48"
+            />
+            <span>
+              <strong>{{ item.group }}</strong
+              ><br />{{ item.title }}
+            </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="14"
@@ -273,7 +356,8 @@
             aria-hidden="true"
           >
             <path
-              fill-rule="evenodd" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm6.5-2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
+              fill-rule="evenodd"
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm6.5-2.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"
             />
           </svg>
         </a>
@@ -348,6 +432,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
