@@ -96,7 +96,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 2rem 0.5rem;
     box-sizing: border-box;
     position: relative;
     background:
@@ -125,7 +125,7 @@
     align-items: center;
     gap: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     min-height: 1000px;
     margin-bottom: 3rem;
     padding: 2rem 2.25rem;
@@ -139,6 +139,11 @@
   .left-side,
   .right-side {
     flex: 1;
+    min-width: 0;
+  }
+
+  .right-side {
+    flex: 2;
   }
 
   .content h1 {
@@ -158,10 +163,9 @@
   }
 
   .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(2, minmax(0, 1fr));
+    grid-auto-flow: column;
     gap: 1rem;
   }
 
@@ -170,11 +174,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 95%;
     --pill-accent: var(--brand-blue);
     background: rgba(57, 139, 213, 0.08);
     color: var(--brand-navy);
-    padding: 2.5rem 1rem 2.5rem 7rem;
+    padding: 1.5rem 0.75rem 1.5rem 4.75rem;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 8px;
@@ -193,7 +196,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 6rem;
+    width: 4rem;
     height: 100%;
     object-fit: cover;
   }
@@ -221,6 +224,7 @@
   }
 
   .pill-group svg {
+    flex-shrink: 0;
     margin-inline-start: 0.75rem;
     color: var(--pill-accent);
   }
@@ -249,11 +253,14 @@
     fill: var(--brand-navy);
   }
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 900px) {
     .content {
       flex-direction: column;
-      width: min(100%, 520px);
       padding: 1.5rem 1.25rem;
+    }
+
+    .right-side {
+      width: 100%;
     }
 
     .divider {
@@ -262,6 +269,12 @@
       min-height: 1px;
       background: var(--gradient-brand-horizontal);
       margin-block: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 580px) {
+    .pill-group {
+      grid: auto-flow 1fr / minmax(0, 1fr);
     }
   }
 </style>
@@ -289,35 +302,66 @@
           item of [
             {
               group: "GRUPO 1",
-              title: "Pruebas de Pentesting",
+              title:
+                "CONSTRUCCIÓN Y PROGRAMACIÓN DE UN ROBOT
+MÓVIL EDUCATIVO INSPIRADO EN WALL-E
+MEDIANTE ESP32",
               link: "/grupo-1",
+              image: "images/home-grupo-1.jpg",
             },
-            { group: "GRUPO 2", title: "Desarrollo Web", link: "/grupo-2" },
-            { group: "GRUPO 3", title: "Machine Learning", link: "/grupo-3" },
+            {
+              group: "GRUPO 2",
+              title:
+                "DISEÑO E IMPLEMENTACIÓN DE DOS CINTAS TRANSPORTADORAS INDEPENDIENTES PARA CLASIFICACIÓN AUTOMÁTICA",
+              link: "/grupo-2",
+              image: "images/home-grupo-2.jpg",
+            },
+            {
+              group: "GRUPO 3",
+              title: "ROBOT SOCCER UTILIZANDO ARDUINO",
+              link: "/grupo-3",
+              image: "images/home-grupo-3.jpg",
+            },
             {
               group: "GRUPO 4",
               title: "Seguridad Informática",
               link: "/grupo-4",
+              image: "images/home-grupo-4.jpg",
             },
             {
               group: "GRUPO 5",
-              title: "Inteligencia Artificial",
+              title:
+                "DESARROLLO DE NSTOCK AI-RP: PLATAFORMA E-COMMERCE, GESTIÓN DE INVENTARIO E IA PARA VENTA DE HARDWARE INFORMÁTICO",
               link: "/grupo-5",
+              image: "images/home-grupo-5.jpg",
             },
-            { group: "GRUPO 6", title: "Simulaciones", link: "/grupo-6" },
+            {
+              group: "GRUPO 6",
+              title:
+                "SIMULACIÓN DE RED CORPORATIVA SEGURA EN CISCO PACKET TRACER",
+              link: "/grupo-6",
+              image: "images/home-grupo-6.jpg",
+            },
             {
               group: "GRUPO 7",
-              title: "Robótica y Microcontroladores",
+              title:
+                "EDUTRACK: PROTOTIPO WEB CON INTELIGENCIA ARTIFICIAL PARA DETECTAR BRECHAS DE APRENDIZAJE EN CALIFICACIONES UNIVERSITARIAS",
               link: "/grupo-7",
+              image: "images/home-grupo-7.jpg",
             },
-            { group: "GRUPO 8", title: "Análisis de Datos", link: "/grupo-8" },
+            {
+              group: "GRUPO 8",
+              title: "Análisis de Datos",
+              link: "/grupo-8",
+              image: "images/home-grupo-8.jpg",
+            },
           ];
           track item.link
         ) {
           <a class="pill" [routerLink]="item.link">
             <img
               class="pill-image"
-              src="images/icono.jpg"
+              [src]="item.image"
               alt=""
               width="48"
               height="48"

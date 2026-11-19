@@ -29,7 +29,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem 1rem;
+      padding: 2rem 0.5rem;
       box-sizing: border-box;
       background: radial-gradient(circle at top left, rgba(249, 178, 70, 0.12), transparent 30%),
         radial-gradient(circle at bottom right, rgba(57, 139, 213, 0.12), transparent 28%);
@@ -37,7 +37,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
     .content {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1440px;
       min-height: 1000px;
       margin-bottom: 3rem;
       padding: 2rem 2.25rem;
@@ -53,7 +53,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
     @media screen and (max-width: 650px) {
       .content {
-        width: min(100%, 520px);
         padding: 1.5rem 1.25rem;
       }
     }
