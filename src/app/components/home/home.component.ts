@@ -8,5 +8,5 @@ import { RouterLink } from '@angular/router';
 
 })
 export class HomeComponent {
-  title = 'Feria Ingeniería de Sistemas';
+  title = 'Feria de Ciencia y Tecnología';
 }
