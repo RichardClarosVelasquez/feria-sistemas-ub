@@ -95,6 +95,12 @@
     white-space: nowrap;
   }
 
+  .title-line {
+    display: block;
+    width: fit-content;
+    white-space: nowrap;
+  }
+
   .title-technology {
     color: var(--highlight-yellow);
   }
@@ -312,6 +318,10 @@
   }
 
   @media screen and (max-width: 580px) {
+    h1 {
+      font-size: clamp(2.625rem, 10.5vw, 3.75rem);
+    }
+
     .pill-group {
       grid: auto-flow 1fr / minmax(0, 1fr);
     }
@@ -327,8 +337,9 @@
         alt="Universidad Unión Bolivariana"
       />
       <h1>
-        <span class="title-banner">Feria de</span>&ngsp;Ciencia y
-        <span class="title-technology">Tecnología</span>
+        <span class="title-line title-banner">Feria de</span>&ngsp;
+        <span class="title-line">Ciencia y</span>&ngsp;
+        <span class="title-line title-technology">Tecnología</span>
       </h1>
       <p>Sábado 21 de noviembre de 2026 - Plaza Villarroel. 🎉</p>
       <img
