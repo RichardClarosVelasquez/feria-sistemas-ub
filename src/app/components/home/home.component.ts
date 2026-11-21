@@ -7,6 +7,4 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
 
 })
-export class HomeComponent {
-  title = 'Feria de Ciencia y Tecnología';
-}
+export class HomeComponent {}

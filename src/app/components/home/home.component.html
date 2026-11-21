@@ -16,6 +16,8 @@
     --brand-deep-blue: #0c3658;
     --brand-gold: #f9b246;
     --brand-white: #ffffff;
+    --highlight-yellow: #feb505;
+    --highlight-blue: #072b53;
 
     --bg-light: #f6f9fc;
     --card-bg: rgba(255, 255, 255, 0.82);
@@ -64,12 +66,13 @@
   }
 
   h1 {
-    font-size: 3.125rem;
-    color: var(--text-primary);
-    font-weight: 700;
-    line-height: 100%;
+    font-size: clamp(2rem, 6vw, 3.125rem);
+    color: var(--highlight-blue);
+    font-weight: 900;
+    line-height: 1.2;
     letter-spacing: -0.125rem;
     margin: 0;
+    text-transform: uppercase;
     font-family:
       "Inter Tight",
       -apple-system,
@@ -82,6 +85,18 @@
       "Apple Color Emoji",
       "Segoe UI Emoji",
       "Segoe UI Symbol";
+  }
+
+  .title-banner {
+    padding-inline: 0.2em;
+    border-radius: 8px;
+    background: var(--highlight-blue);
+    color: var(--brand-white);
+    white-space: nowrap;
+  }
+
+  .title-technology {
+    color: var(--highlight-yellow);
   }
 
   p {
@@ -183,7 +198,7 @@
     --pill-accent: var(--brand-blue);
     background: rgba(57, 139, 213, 0.08);
     color: var(--brand-navy);
-    padding: 1.5rem 2.875rem 1.5rem 8.75rem;
+    padding: 3.25rem 0.75rem 1.5rem 8.75rem;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 8px;
@@ -234,40 +249,23 @@
     position: absolute;
     top: 0.25rem;
     right: 0.25rem;
-    display: grid;
-    place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-height: 44px;
+    padding-inline: 0.5rem;
     border-radius: 6px;
-    color: var(--brand-navy);
+    background: var(--highlight-yellow);
+    color: var(--highlight-blue);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-decoration: none;
   }
 
   .pill-download:hover,
   .pill-download:focus-visible {
-    background: var(--brand-navy);
-    color: var(--brand-white);
-  }
-
-  .pill-download-label {
-    position: absolute;
-    bottom: calc(100% + 0.25rem);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    padding: 0.375rem 0.625rem;
-    border-radius: 6px;
-    background: var(--brand-gold);
-    color: var(--brand-navy);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    white-space: nowrap;
-    pointer-events: none;
-    visibility: hidden;
-  }
-
-  .pill-download:hover .pill-download-label,
-  .pill-download:focus-visible .pill-download-label {
-    visibility: visible;
+    background: var(--highlight-blue);
+    color: var(--highlight-yellow);
   }
 
   .uub-mascot {
@@ -295,12 +293,6 @@
   }
 
   @media screen and (max-width: 900px) {
-    .pill-download-label {
-      width: 4.5rem;
-      text-align: center;
-      white-space: normal;
-    }
-
     .content {
       flex-direction: column;
       padding: 1.5rem 1.25rem;
@@ -334,7 +326,10 @@
         src="images/logo_uub.png"
         alt="Universidad Unión Bolivariana"
       />
-      <h1>{{ title }}</h1>
+      <h1>
+        <span class="title-banner">Feria de</span>&ngsp;Ciencia y
+        <span class="title-technology">Tecnología</span>
+      </h1>
       <p>Sábado 21 de noviembre de 2026 - Plaza Villarroel. 🎉</p>
       <img
         class="uub-mascot"
@@ -441,7 +436,7 @@
               >
                 <path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" />
               </svg>
-              <span class="pill-download-label" aria-hidden="true">Descargar articulo</span>
+              <span>PDF</span>
             </a>
           </div>
         }
