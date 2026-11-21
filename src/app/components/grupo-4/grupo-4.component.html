@@ -19,8 +19,8 @@
   <div class="divider" role="separator" aria-orientation="vertical"></div>
   <article>
     <h1>
-      Grupo 4: SISTEMA AUTOMATIZADO DE SEGUIMIENTO SOLAR DE DOBLE EJE CON
-      MONITOREO DE EFICIENCIA ENERGÉTICA
+      Grupo 4: SEGUIDOR SOLAR DE DOBLE EJE DE BAJO COSTO: DISEÑO Y PRUEBA DE
+      FUNCIONAMIENTO
     </h1>
     <img
       src="images/grupo_4.png"
@@ -29,14 +29,23 @@
       height="320"
     />
     <p>
-      Un proyecto de seguimiento solar de doble eje orientando a la eficiencia
-      energética busca maximizar la captación de radiación solar directa a lo
-      largo del día y del año manteniendo el plano fotovoltaico o térmico
-      perpendicular a los rayos del sol (reduciendo las pérdidas por coseno del
-      ángulo de incidencia). A diferencia de un sistema fijo o de un solo eje,
-      ajusta tanto el azimut (movimiento horizontal este-oeste) como la
-      elevación o cenit (inclinación vertical según la altura solar y la
-      estación).
+      La orientación de un panel fotovoltaico respecto del Sol determina la
+      potencia que entrega, por lo que un panel fijo aprovecha solo una parte de
+      la radiación disponible a lo largo del día. Este trabajo presenta el
+      diseño, la construcción y una prueba de funcionamiento de un seguidor
+      solar de doble eje de bajo costo, desarrollado como proyecto integrador de
+      segundo semestre para aplicar conocimientos de modelado matemático,
+      programación y electrónica. El sistema emplea cuatro fotorresistencias
+      (LDR) dispuestas en cruz, un microcontrolador Arduino Uno y dos
+      servomotores que corrigen la orientación mediante un control por
+      diferencia de lecturas con zona muerta; una aplicación en Java recibe por
+      puerto serial los ángulos, las lecturas de los sensores y la tensión del
+      panel, y los registra. La prueba de funcionamiento verificó de forma
+      cualitativa la respuesta de los sensores, el movimiento de ambos ejes, la
+      comunicación serial y el registro de datos. No se midió la potencia del
+      panel con y sin seguimiento, por lo que no se cuantifica ninguna ganancia
+      energética. Se concluye que el prototipo cumple su función de orientación
+      y constituye una base para evaluaciones cuantitativas posteriores.
     </p>
     <!-- <h2>Aspectos sobresalientes del proyecto</h2>
   <ul>

@@ -169,6 +169,12 @@
     gap: 1rem;
   }
 
+  .pill-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .pill {
     position: relative;
     display: flex;
@@ -177,7 +183,7 @@
     --pill-accent: var(--brand-blue);
     background: rgba(57, 139, 213, 0.08);
     color: var(--brand-navy);
-    padding: 1.5rem 0.75rem 1.5rem 8.75rem;
+    padding: 1.5rem 2.875rem 1.5rem 8.75rem;
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 8px;
@@ -190,6 +196,7 @@
     line-height: 1.4rem;
     letter-spacing: -0.00875rem;
     text-decoration: none;
+    overflow-wrap: anywhere;
   }
 
   .pill-image {
@@ -223,10 +230,44 @@
     --pill-accent: var(--brand-orange-soft);
   }
 
-  .pill-group svg {
-    flex-shrink: 0;
-    margin-inline-start: 0.75rem;
-    color: var(--pill-accent);
+  .pill-download {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 6px;
+    color: var(--brand-navy);
+  }
+
+  .pill-download:hover,
+  .pill-download:focus-visible {
+    background: var(--brand-navy);
+    color: var(--brand-white);
+  }
+
+  .pill-download-label {
+    position: absolute;
+    bottom: calc(100% + 0.25rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    padding: 0.375rem 0.625rem;
+    border-radius: 6px;
+    background: var(--brand-gold);
+    color: var(--brand-navy);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .pill-download:hover .pill-download-label,
+  .pill-download:focus-visible .pill-download-label {
+    visibility: visible;
   }
 
   .uub-mascot {
@@ -254,6 +295,12 @@
   }
 
   @media screen and (max-width: 900px) {
+    .pill-download-label {
+      width: 4.5rem;
+      text-align: center;
+      white-space: normal;
+    }
+
     .content {
       flex-direction: column;
       padding: 1.5rem 1.25rem;
@@ -308,6 +355,7 @@
                   MEDIANTE ESP32",
               link: "/grupo-1",
               image: "images/grupo_1.png",
+              document: "docs/grupo_1.pdf",
             },
             {
               group: "GRUPO 2",
@@ -315,18 +363,23 @@
                 "DISEÑO E IMPLEMENTACIÓN DE DOS CINTAS TRANSPORTADORAS INDEPENDIENTES PARA CLASIFICACIÓN AUTOMÁTICA",
               link: "/grupo-2",
               image: "images/grupo_2.png",
+              document: "docs/grupo_2.pdf",
             },
             {
               group: "GRUPO 3",
               title: "ROBOT SOCCER UTILIZANDO ARDUINO",
               link: "/grupo-3",
               image: "images/grupo_3.jpg",
+              document: "docs/grupo_3.pdf",
             },
             {
               group: "GRUPO 4",
-              title: "SISTEMA AUTOMATIZADO DE SEGUIMIENTO SOLAR DE DOBLE EJE CON MONITOREO DE EFICIENCIA ENERGÉTICA",
+              title:
+                "SEGUIDOR SOLAR DE DOBLE EJE DE BAJO COSTO: DISEÑO Y
+                PRUEBA DE FUNCIONAMIENTO",
               link: "/grupo-4",
               image: "images/grupo_4.png",
+              document: "docs/grupo_4.pdf",
             },
             {
               group: "GRUPO 5",
@@ -334,6 +387,7 @@
                 "DESARROLLO DE NSTOCK AI-RP: PLATAFORMA E-COMMERCE, GESTIÓN DE INVENTARIO E IA PARA VENTA DE HARDWARE INFORMÁTICO",
               link: "/grupo-5",
               image: "images/grupo_5.png",
+              document: "docs/grupo_5.pdf",
             },
             {
               group: "GRUPO 6",
@@ -341,6 +395,7 @@
                 "SIMULACIÓN DE RED CORPORATIVA SEGURA EN CISCO PACKET TRACER",
               link: "/grupo-6",
               image: "images/grupo_6.jpg",
+              document: "docs/grupo_6.pdf",
             },
             {
               group: "GRUPO 7",
@@ -348,34 +403,47 @@
                 "EDUTRACK: PROTOTIPO WEB CON INTELIGENCIA ARTIFICIAL PARA DETECTAR BRECHAS DE APRENDIZAJE EN CALIFICACIONES UNIVERSITARIAS",
               link: "/grupo-7",
               image: "images/grupo_7.webp",
+              document: "docs/grupo_7.pdf",
             },
           ];
           track item.link
         ) {
-          <a class="pill" [routerLink]="item.link">
-            <img
-              class="pill-image"
-              [src]="item.image"
-              alt=""
-              width="48"
-              height="48"
-            />
-            <span>
-              <strong>{{ item.group }}</strong
-              ><br />{{ item.title }}
-            </span>
-            <!-- <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+          <div class="pill-card">
+            <a class="pill" [routerLink]="item.link">
+              <img
+                class="pill-image"
+                [src]="item.image"
+                alt=""
+                width="48"
+                height="48"
               />
-            </svg> -->
-          </a>
+              <span>
+                <strong>{{ item.group }}</strong
+                ><br />{{ item.title }}
+              </span>
+            </a>
+            <a
+              class="pill-download"
+              [href]="item.document"
+              download
+              [attr.aria-label]="'Descargar PDF de ' + item.group"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4" />
+              </svg>
+              <span class="pill-download-label" aria-hidden="true">Descargar articulo</span>
+            </a>
+          </div>
         }
       </div>
       <div class="social-links">
